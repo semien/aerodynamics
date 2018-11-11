@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>landing</title>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="{% static 'bs/css/flatly.min.css' %}" />-->
+    <link rel="stylesheet" href="{% static 'aero_calculation/styles.css' %}" />
+</head>
+<body>
+    <!--<div class="container">-->
+        <header class="header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                        <div class="logo">
+                            <img src="http://transformations-spafitness.com/wp-content/uploads/2013/11/google-logo-icon-PNG-Transparent-Background-1.png">
+                        </div>
+                    </div>
+                    <div class="col offset-lg-1 offset-md-1 offset-sm-1">
+                        <ul class="navigation">
+                            <li>
+                                <a>
+                                    Домашняя страница
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    Инструкция
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    О нас
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!--</div>-->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'calc' %}">
+                        <button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-trash">рассчитать</i>
+                        </button>
+                    </a>
+                    <a href="{% url 'delete_all' %}">
+                        <button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-trash">удалить все</i>
+                        </button>
+                    </a>
+                    <iframe src="https://money.yandex.ru/quickpay/button-widget?targets=jgkfnf&default-sum=5&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=&quickpay=small&account=410016097005231&" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table>
+                        <tr>
+                            <th>№</th>
+                            <th>температура, °С</th>
+                            <th>расход, м3/ч</th>
+                            <th>длина участка, м</th>
+                            <th>рек. скорость, м/с</th>
+                            <th>коэфф.шероховатости</th>
+                        </tr>
+                        {% for section in sections %}
+                        <tr>
+							<th>-</th>
+                            <th>{{ section.temperature }}</th>
+                            <th>{{ section.consumption }}</th>
+                            <th>{{ section.length }}</th>
+                            <th>{{ section.recommended_speed }}</th>
+                            <th>{{ section.coeff_roughness }}</th>
+                        </tr>
+						{% endfor %}
+                    </table>
+                    <form action="{% url 'add' %}" method="POST" role="form">
+                        {% csrf_token %}
+                        {{ section_form.as_p }}
+                        <button type="submit">добавить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    Все права бла-бла-бла
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
