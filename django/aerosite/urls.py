@@ -17,8 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 
+from django_registration.forms import RegistrationFormUniqueEmail
+from aero_calculation.forms import MyRegistrationForm
+from django_registration.backends.one_step.views import RegistrationView
+
+from aero_calculation.forms import ProjectForm
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('aero_calculation.urls'))
+    path('', include('aero_calculation.urls')),
+    path('accounts/register/',
+        RegistrationView.as_view(form_class=MyRegistrationForm), {'form': RegistrationFormUniqueEmail},
+        name='django_registration_register'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django_registration.backends.one_step.urls')),
 ]

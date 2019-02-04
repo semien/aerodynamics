@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>landing</title>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <a href="{% url 'project_form' %}">новый проект</a>
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col">-->
+                <!--<a href="{% url 'calc' %}">-->
+                    <!--<button type="button" class="btn btn-warning">-->
+                                    <!--<i class="glyphicon glyphicon-trash">рассчитать</i>-->
+                    <!--</button>-->
+                <!--</a>-->
+                <!--<a href="{% url 'delete_all' %}">-->
+                    <!--<button type="button" class="btn btn-warning">-->
+                                    <!--<i class="glyphicon glyphicon-trash">удалить все</i>-->
+                    <!--</button>-->
+                <!--</a>-->
+                <!--<iframe src="https://money.yandex.ru/quickpay/button-widget?targets=jgkfnf&default-sum=5&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&successURL=&quickpay=small&account=410016097005231&" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col">-->
+                <!--<table>-->
+                    <!--<tr>-->
+                        <!--<th>№</th>-->
+                        <!--<th>температура, °С</th>-->
+                        <!--<th>расход, м3/ч</th>-->
+                        <!--<th>длина участка, м</th>-->
+                        <!--<th>рек. скорость, м/с</th>-->
+                        <!--<th>коэфф.шероховатости</th>-->
+                    <!--</tr>-->
+                    <!--{% for section in sections %}-->
+                    <!--<tr>-->
+                        <!--<th>-</th>-->
+                        <!--<th>{{ section.temperature }}</th>-->
+                        <!--<th>{{ section.consumption }}</th>-->
+                        <!--<th>{{ section.length }}</th>-->
+                        <!--<th>{{ section.recommended_speed }}</th>-->
+                        <!--<th>{{ section.coeff_roughness }}</th>-->
+                    <!--</tr>-->
+                    <!--{% endfor %}-->
+                <!--</table>-->
+                <!--<form action="{% url 'add' %}" method="POST" role="form">-->
+                    <!--{% csrf_token %}-->
+                    <!--{{ section_form.as_p }}-->
+                    <!--<button type="submit">добавить</button>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+{% endblock %}
