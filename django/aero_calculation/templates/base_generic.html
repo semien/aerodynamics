@@ -1,81 +1,165 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Octagon : Trendy News Magazine </title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% block title %}
-    <title>Aerobase</title>
-    {% endblock %}
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/highlight.css' %}">			<!-- ===This Style sheet for Highlight === -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/Pe-icon-7-stroke.css' %}">			<!-- ===This Style sheet for Stoke Icon === -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/meanmenu.css' %}">				<!-- ===This Style sheet for Responsive Menu=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/animate.css' %}">				<!-- ===This Style sheet for Animations=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/owl.carousel.css' %}">			<!-- ===This Style sheet for Owl Carousel=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/owl.theme.css' %}">			<!-- ===This Style sheet for Owl Carousel=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/font-awesome.min.css' %}">		<!-- ===This Style sheet for Font Awesome fonts & icons=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/bootstrap.min.css' %}">		<!-- ===This Style sheet for Bootstrap classes=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/style.css' %}">				<!-- ===This Style sheet for Styling the full template=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/responsive.css' %}">			<!-- ===This Style sheet for making the template responsive for all devices=== -->
+	 <script src="{% static 'aero_calculation/js/vendor/modernizr-2.6.2.min.js' %}"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="{% static 'bs/css/flatly.min.css' %}" />-->
-    <link rel="stylesheet" href="{% static 'aero_calculation/styles.css' %}" />
 </head>
 <body>
-    <!--<div class="container">-->
-        <header class="header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                        <div class="logo">
-                            <img src="http://transformations-spafitness.com/wp-content/uploads/2013/11/google-logo-icon-PNG-Transparent-Background-1.png">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <ul class="navigation">
-                            <li>
-                                <a>
-                                    Главная
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    Инструкция
-                                </a>
-                            </li>
-                            <!--<li>-->
-                                <!--<a>-->
-                                    <!--О нас-->
-                                <!--</a>-->
-                            <!--</li>-->
-                            <li>
-                                <a>
-                                    Контакты
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                        <ul class="navigation-login">
-                            {% if user.is_authenticated %}
-                                <li>User: {{ user.get_username }}</li>
-                                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-                            {% else %}
-                                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-    <div class="content">
-    {% block content %}
-        <!--content-->
-    {% endblock %}
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-                    Все права бла-бла-бла
-                </div>
-            </div>
-        </div>
-    </footer>
+
+	<!-- ___Start Home One Page___ -->
+	<div class="container-fluid home-1" id="container-full">
+		<div class="row">
+			<!-- ___Start Left Menu___ -->
+			<div class="col-md-3 no-padding">
+				<div id="left-sidebar">
+					<div class="sidebar-menu">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.png" alt="Octagon" /></a>
+						</div>
+						<!-- End Logo -->
+
+						<!-- Profile -->
+						<div id="menu-area" class="menu-area toogle-sidebar-sections">
+							<div class="menu-head">
+								<a href="#0" class="accordion-toggle">Профиль<span class="toggle-icon"><i class="fa fa-bars"></i></span></a>
+								<div class="accordion-content">
+									<div class="menu-body">
+										<ul>
+											<li class=""><a href="">Инфа</a></li>
+											<li><a href="">Настройки</a></li>
+										</ul>
+									</div><!-- End Menu Body -->
+								</div><!-- End According Content -->
+							</div><!-- End Menu Head -->
+						</div>
+						<!-- End Menu Area -->
+
+						<!-- Start Follow Area -->
+						<div class="follow-area toogle-sidebar-sections">
+							<div class="follow-head">
+								<a href="#0" class="accordion-toggle">Подписаться<span class="toggle-icon"><i class="fa fa-bars"></i></span></a>
+								<div class="accordion-content">
+									<div class="follow-body">
+										<ul class="ul-clearfix">
+											<li>
+												<a href="" class="connect-with-us facebook">
+													<i class="fa fa-facebook"></i>
+													<span>11,222 Follow</span>
+													<div class="plus">
+														<i class="fa fa-plus"></i>
+													</div>
+												</a><!-- End Facebook -->
+											</li>
+											<li>
+												<a href="" class="connect-with-us twitter">
+													<i class="fa fa-twitter"></i>
+													<span>9865 Follow</span>
+													<div class="plus">
+														<i class="fa fa-plus"></i>
+													</div>
+												</a><!-- End Twitter -->
+											</li>
+											<li>
+												<a href="" class="connect-with-us google-plus">
+													<i class="fa fa-google-plus"></i>
+													<span>2864 Follow</span>
+													<div class="plus">
+														<i class="fa fa-plus"></i>
+													</div>
+												</a><!-- End Google Plus -->
+											</li>
+											<li>
+												<a href="" class="connect-with-us linkedin">
+													<i class="fa fa-linkedin"></i>
+													<span>11,222 Follow</span>
+													<div class="plus">
+														<i class="fa fa-plus"></i>
+													</div>
+												</a><!-- End Linkedin -->
+											</li>
+										</ul>
+									</div><!-- End follow-body -->
+								</div><!-- End Accordion Content -->
+							</div><!-- End Follow Head -->
+
+						</div><!-- End Follow Area -->
+
+					</div><!-- End Sidebar Menu -->
+				</div><!-- End Menu Left -->
+			</div><!-- End Column -->
+			<!-- End Left Menu -->
+
+			<!-- Start Right Column -->
+			<div class="col-md-9 no-padding">
+				<!-- ___Start Category Nav___ -->
+				<div class="category-nav">
+					<div id="mega-menu" class="mega-menu">
+						<ul>
+							<li class="mega-menu-li main"><a href="#0">Главная</a></li>
+							<li class="mega-menu-li instruction"><a href="#0">Инструкция</a></li>
+							<li class="mega-menu-li about-us"><a href="#0">О нас</a></li>
+							<li class="mega-menu-li contacts"><a href="#0">Контакты</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- End Category Nav -->
+
+
+				<!-- Main Content-->
+
+
+				<div class="footer text-center">
+					<p>copyrights © 2014 kek. All Rights Reserved.</p>
+				</div>
+
+			</div><!-- End Right Column -->
+		</div><!-- End Row -->
+	</div><!-- End Container -->
+
+
+ß
+
+
+	<script type="text/javascript" src="{% static 'aero_calculation/js/vendor/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'aero_calculation/js/scripts.js' %}"></script>				<!-- ===This Script for Custom Script=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/owl.carousel.min.js' %}"></script>			<!-- ===This Script for Owl Carousel=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/bootstrap.min.js' %}"></script>			<!-- ===This Script for Bootstrap=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/wow.min.js' %}"></script>				<!-- ===This Script for Wow JS=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/jquery.meanmenu.min.js' %}"></script>		<!-- ===This Script for Main Menu=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/jquery.jscroll.js' %}"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+			jQuery('.category-nav ').meanmenu();
+
+			  $(".owl-demo").owlCarousel({
+
+				  navigation : false, // Show next and prev buttons
+				  slideSpeed : 300,
+				  paginationSpeed : 400,
+				  singleItem:true
+
+				});
+		});
+	</script>
+
 </body>
 </html>
