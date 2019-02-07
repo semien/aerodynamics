@@ -1,44 +1,51 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block title %}
-<title>login</title>
+<title>Sign in to ZI.Aero</title>
 {% endblock %}
 
 {% block content %}
+    <div class="login-account">
+        <form  class="form" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="auth-form-header">
+                <h1>Вход в ZI.Aero</h1>
+            </div>
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+            {% if form.errors %}
+            <div class="login-error">
+                Имя пользователя или пароль введены неправильно
+            </div>
+            {% else %}
+                {% if next %}
+                <div class="login-error">
+                    {% if user.is_authenticated %}
+                        У вас нет доступа к этой странице
+                    {% else %}
+                        Пожалуйста, пройдите авторизацию
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
-
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
-
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-<p><a href="{% url 'django_registration_register' %}">Register</a></p>
+            <div class="auth-form-body">
+                <div class="form-label"> {{ form.username.label_tag }} </div>
+                <div class="form-field"> {{ form.username }} </div>
+                <div class="form-label"> {{ form.password.label_tag }}
+                    <a class="forgot-pass" href="{% url 'password_reset' %}">Забыли пароль?</a></div>
+                <div class="form-field"> {{ form.password }} </div>
+                <div>
+                      <input type="submit" class="btn btn-submit" value="Войти" />
+                      <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+            </div>
+        </form>
+        <div class="auth-form-body mt20">
+            <div class="center">Еще не загеристрированы?</div>
+            <a class="btn btn-register" href="{% url 'django_registration_register' %}">
+                Зарегистрироваться
+            </a>
+        </div>
+    </div><!-- End Login Account -->
 
 {% endblock %}

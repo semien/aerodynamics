@@ -1,18 +1,33 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
+
+{% block title %}
+<title>Join ZI.Aero</title>
+{% endblock %}
+
 {% block content %}
-<h1>Регистрация</h1>
-<form method="post" action="">
-{% csrf_token %}
-<dl class="register">
-    {{form.errors}}
-{% for field in form %}
-    <dt>{{ field.label_tag }}</dt>
-    <dd class="clearfix">{{ field }}
-    {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}
-    {% if field.errors %}<div class="myerrors clearfix">{{ field.errors }}</div>{% endif %}
-    </dd>
-{% endfor %}
-</dl>
-<input type="submit" value="Зарегистрироваться" class="clearfix">
-</form>
+    <div class="register-account">
+        <form  class="form" method="post" action="">
+            {% csrf_token %}
+            <div class="auth-form-header">
+                <h1>Присоединиться к ZI.Aero</h1>
+            </div>
+
+            <div class="auth-form-body">
+                {% for field in form %}
+                    <div class="form-label"> {{ field.label_tag }} </div>
+                    {% if field.errors %}
+                    <div class="errors clearfix">{{ field.errors.0 }}</div>
+                    {% endif %}
+                    <div class="clearfix form-field"> {{ field }} </div>
+            <!--{#            {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}#}-->
+
+                {% endfor %}
+
+                <div>
+                      <input type="submit" class="btn btn-submit" value="Загеристрироваться" />
+                      <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}

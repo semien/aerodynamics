@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 import logging
 
-@login_required
+# @login_required
 def home(request):
     section_form = AddForm()
     sections = Section.objects.all()

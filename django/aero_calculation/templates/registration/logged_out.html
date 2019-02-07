@@ -1,11 +1,18 @@
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block title %}
-<title>login</title>
+<title>Logged out from ZI.Aero</title>
 {% endblock %}
 
 {% block content %}
-<p>Logged out!</p>
-
-<a href="{% url 'login'%}">Click here to login again.</a>
+<div class="login-account">
+    <div class="auth-form-header">
+        <h1>Вы вышли из профиля</h1>
+    </div>
+    <div class="auth-form-body">
+        <a class="btn btn-register" href="{% url 'login' %}">
+            Войти снова
+        </a>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {% block title %}
+    {% endblock %}
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/highlight.css' %}">			<!-- ===This Style sheet for Highlight === -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/Pe-icon-7-stroke.css' %}">			<!-- ===This Style sheet for Stoke Icon === -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/meanmenu.css' %}">				<!-- ===This Style sheet for Responsive Menu=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/animate.css' %}">				<!-- ===This Style sheet for Animations=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/owl.carousel.css' %}">			<!-- ===This Style sheet for Owl Carousel=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/owl.theme.css' %}">			<!-- ===This Style sheet for Owl Carousel=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/font-awesome.min.css' %}">		<!-- ===This Style sheet for Font Awesome fonts & icons=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/bootstrap.min.css' %}">		<!-- ===This Style sheet for Bootstrap classes=== -->
+	<link rel="stylesheet" href="{% static 'aero_calculation/css/style.css' %}">				<!-- ===This Style sheet for Styling the full template=== -->
+	<!--<link rel="stylesheet" href="{% static 'aero_calculation/css/responsive.css' %}">			&lt;!&ndash; ===This Style sheet for making the template responsive for all devices=== &ndash;&gt;-->
+    <script src="{% static 'aero_calculation/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+
+</head>
+<body>
+
+
+	<!-- Container -->
+	<div class="container-fluid home-1" id="container-full">
+		<div class="row">
+			<!-- Logo-->
+			<div class="col-md-12 no-padding">
+				<div class="logo">
+					<a href="{% url 'home' %}"><img src="{% static 'aero_calculation/images/logo.png' %}"></a>
+				</div>
+			</div>
+			<!-- End Logo -->
+        </div>
+
+        <div class="row">
+			<!-- Main Content-->
+			<div class="col-md-12 no-padding">
+				{% block menu %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock %}
+
+			</div><!-- End Main Content-->
+		</div>
+
+		<div class="row">
+			<!-- Footer -->
+			<div class="col-md-12 no-padding">
+				<div class="footer text-center">
+					<p>copyrights © 2014 kek. All Rights Reserved.</p>
+				</div>
+			</div>
+		</div><!-- End Footer -->
+	</div><!-- End Container -->
+
+
+	<script type="text/javascript" src="{% static 'aero_calculation/js/vendor/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'aero_calculation/js/scripts.js' %}"></script>				<!-- ===This Script for Custom Script=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/owl.carousel.min.js' %}"></script>			<!-- ===This Script for Owl Carousel=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/bootstrap.min.js' %}"></script>			<!-- ===This Script for Bootstrap=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/wow.min.js' %}"></script>				<!-- ===This Script for Wow JS=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/jquery.meanmenu.min.js' %}"></script>		<!-- ===This Script for Main Menu=== -->
+	<script type="text/javascript" src="{% static 'aero_calculation/js/jquery.jscroll.js' %}"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+			jQuery('.category-nav ').meanmenu();
+
+			  $(".owl-demo").owlCarousel({
+
+				  navigation : false, // Show next and prev buttons
+				  slideSpeed : 300,
+				  paginationSpeed : 400,
+				  singleItem:true
+
+				});
+		});
+	</script>
+
+</body>
+</html>

@@ -111,7 +111,6 @@
 @media (min-width: 992px) and (max-width: 1199px) {
 
   .main-post-body {margin-left: 0;}
-  .login-account {padding: 0px 50px;}
   .register {margin: 20px 20px 0px;}
   .accordion-toggle span.toggle-icon {right: 20px;}
   .menu-body ul li a {padding: 20px;}
@@ -250,7 +249,6 @@
     margin-left: 0px;
   }
   .register {margin: 50px 0 0;}
-  .login-account {padding: 0;}
   .mail-follow-us {padding-left: 0;}
   .bottom-social h3 {padding-top: 10px;}
   .newsletter h3 {padding-top: 10px;}
@@ -356,7 +354,6 @@
   .mail-follow-us h4 {margin-left: 0;}
   .mail-follow-us li {padding: 0 20px 0 0px;}
   .register {margin: 15px;}
-  .login-account {padding: 30px 15px;}
   .post-right-content .media-body {
     display: inline-block;
     min-height: 185px;
@@ -498,7 +495,6 @@
   .mail-follow-us h4 {margin-left: 0;}
   .mail-follow-us li {padding: 0 20px 0 0px;}
   .register {margin: 15px;}
-  .login-account {padding: 30px 15px;}
   .post-right-content .media-body {
     display: inline-block;
     min-height: 185px;
@@ -607,7 +603,6 @@
   .mail-follow-us h4 {margin-left: 0;}
   .mail-follow-us li {padding: 0 20px 0 0px;}
   .register {margin: 15px;}
-  .login-account {padding: 30px 15px;}
   .post-right-content .media-body {
     display: inline-block;
     min-height: 185px;
@@ -776,7 +771,6 @@
   }
   .mean-container .mean-nav ul li a {width: 89%;}
   .address {height: 70px;}
-   .login-account {padding: 30px 0px;}
   .register {
     margin: 30px 0px;
     padding: 15px;
@@ -952,7 +946,6 @@
   .search-body,
   .user-body,
   .mail-body {padding: 50px 30px;}
-  .login-account {padding: 30px 0px;}
   .register {
     margin: 30px 0px;
     padding: 15px;
