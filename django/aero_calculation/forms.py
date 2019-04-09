@@ -16,6 +16,7 @@ class ProjectForm(forms.Form):
     type = forms.ChoiceField(choices=PROJECT_TYPES, label="", initial='', widget=forms.Select(), required=True)
 
 
+
 class AddForm(forms.Form):
     section = forms.CharField(max_length=40,
         widget=forms.TextInput(

@@ -1,0 +1,46 @@
+{% extends "base_hat.html" %}
+
+{% block title %}
+<title>name</title>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <form  class="form" method="post" action="{% url 'add_project' %}">
+            {% csrf_token %}
+            <div class="form-header">
+                <h1>Добавление проекта</h1>
+            </div>
+
+{#            {% if form.errors %}#}
+{#            <div class="form-error">#}
+{#                Имя пользователя или пароль введены неправильно#}
+{#            </div>#}
+{#            {% else %}#}
+{#                {% if next %}#}
+{#                <div class="login-error">#}
+{#                    {% if user.is_authenticated %}#}
+{#                        У вас нет доступа к этой странице#}
+{#                    {% else %}#}
+{#                        Пожалуйста, пройдите авторизацию#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#                {% endif %}#}
+{#            {% endif %}#}
+
+            <div class="form-body">
+                <div class="form-label"> Название </div>
+                <div class="form-field"> {{ form.project_name }} </div>
+                {% if form.project_name.errors %}
+                    <div class="errors">{{ form.project_nam.errors.0 }}</div>
+                {% endif %}
+                <div class="form-label"> Тип </div>
+                <div class="form-field"> {{ form.type }} </div>
+                <div>
+                      <input type="submit" class="btn btn-submit" value="Добавить" />
+                      <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

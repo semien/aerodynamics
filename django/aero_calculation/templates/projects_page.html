@@ -1,0 +1,28 @@
+{% extends "base_hat.html" %}
+
+{% block title %}
+<title>name</title>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="project-table">
+        <table>
+        <tr>
+          <th>Название</th>
+          <th>Тип</th>
+          <th>Добавлен</th>
+          <th>Изменен</th>
+        </tr>
+        {% for project in projects %}
+            <tr class="project-item">
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.type }}</td>
+                <td>{{ project.creation_time }}</td>
+                <td>{{ project.update_time }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

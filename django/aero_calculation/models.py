@@ -18,7 +18,7 @@ class Project(models.Model):
     project_name = models.CharField(max_length=30)
     creation_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    type = models.CharField(max_length=1, choices=PROJECT_TYPES)
+    type = models.CharField(max_length=20, choices=PROJECT_TYPES)
     sections = JSONField(load_kwargs={'object_pairs_hook': collections.OrderedDict})
 
 

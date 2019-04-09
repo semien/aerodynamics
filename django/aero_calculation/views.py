@@ -3,7 +3,7 @@ from .forms import AddForm, ProjectForm
 from .algo.sector_calculation import calculate
 from .algo.email_sender import send_message
 
-from .models import Section
+from .models import Section, Project
 
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
@@ -18,13 +18,6 @@ def home(request):
     return render(request, 'home.html', locals())
 
 
-# def registration(request):
-#     objs = User.objects.all()
-#     registration_form = RegistrationForm()
-#     return render(request, 'registration.html', locals())
-#
-
-
 @require_POST
 def add_section(request):
     form = AddForm(request.POST)
@@ -36,6 +29,28 @@ def add_section(request):
 
     return redirect('home')
 
+@login_required
+def project_add_form(request):
+    form = ProjectForm()
+    return render(request, 'project_add.html', locals())
+
+@login_required
+def add_project(request):
+    form = ProjectForm(request.POST)
+    print(form)
+    if form.is_valid():
+        new_project = Project()
+        new_project.user = request.user
+        new_project.project_name = request.POST['project_name']
+        new_project.type = request.POST['type']
+        new_project.save()
+
+    return redirect('home')
+
+@login_required
+def projects_page(request):
+    projects = Project.objects.filter(user=request.user).order_by('update_time')
+    return render(request, 'projects_page.html', locals())
 
 def delete_all(request):
     Section.objects.all().delete()
@@ -48,6 +63,5 @@ def calc(request):
     send_message(filename)
     return redirect('home')
 
-def project_form(request):
-    form = ProjectForm
-    return render(request, 'project_form.html', locals())
+def project_page(request):
+    return render(request, 'project_page.html', locals())

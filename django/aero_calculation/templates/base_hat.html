@@ -64,22 +64,23 @@
 										  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 {#                                              <div class="dropdown-item nohover">{{ user.username }}</div>#}
 											  <a class="dropdown-item" href="#">Профиль</a>
-											  <a class="dropdown-item" href="#">Проекты</a>
+											  <a href="{% url 'projects' %}" class="dropdown-item" href="#">Проекты</a>
 											  <a href="{% url 'logout' %}" class="dropdown-item" href="#">Выйти</a>
 										  </div>
 									</div>
 								</li>
                                 <li class="mega-menu-li menu-add">
-                                    <div class="dropdown show">
-										  <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Добавить
-										  </a>
-
-										  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-											<a class="dropdown-item" href="#">Механическая вентиляция</a>
-											<a class="dropdown-item" href="#">Естественная вентиляция</a>
-										  </div>
-									</div>
+                                    <a href="{% url 'project_form' %}"><div>Добавить проект</div></a>
+{#                                    <div class="dropdown show">#}
+{#										  <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                                              Добавить#}
+{#										  </a>#}
+{##}
+{#										  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">#}
+{#											<a class="dropdown-item" href="#">Механическая вентиляция</a>#}
+{#											<a class="dropdown-item" href="#">Естественная вентиляция</a>#}
+{#										  </div>#}
+{#									</div>#}
                                 </li>
                             {% else %}
                                 <li class="mega-menu-li menu-profile-login">
@@ -99,12 +100,10 @@
         <div class="row">
 			<!-- Main Content-->
 			<div class="col-md-12 no-padding">
-				{% block menu %}
-                {% endblock %}
-
-                {% block content %}
-                {% endblock %}
-
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
 			</div><!-- End Main Content-->
 		</div>
 
